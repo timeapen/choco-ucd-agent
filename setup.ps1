@@ -16,7 +16,7 @@ function Download-Flyway-CLI {
 
 function Choco-Install-JRE {
 
-  Write-Ouput "Choclatey installing JRE8"
+  Write-Output "Choclatey installing JRE8"
   cinst jre8 -y
   
 }
