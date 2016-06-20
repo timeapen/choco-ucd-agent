@@ -6,13 +6,30 @@ function Download-Flyway-CLI {
   $output = "flyway-commandline-4.0.3-windows-x64.zip"
   $start_time = Get-Date
 
+  Write-Output "Starting to download flyway cli zip from: $url"
+
   (New-Object System.Net.WebClient).DownloadFile($url, $output)
 
   Write-Output "Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
 
 }
 
+function Choco-Install-JRE {
+
+  Write-Ouput "Choclatey installing JRE8"
+  cinst jre8 -y
+  
+}
+
+function Choco-Install-CloudFoundry-CLI {
+
+  Write-Output "Choclatey install of CloudFoundry CLI"  
+  cinst cloudfoundry-cli -y
+
+}
+
 Download-Flyway-CLI
 
-cinst jre8 -y
-cinst cloudfoundry-cli -y
+Choco-Install-JRE
+
+Choco-Install-CloudFoundry-CLI
